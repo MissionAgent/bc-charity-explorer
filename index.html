@@ -486,7 +486,7 @@ function App(){
               )}
 
               <div style={{marginTop:'20px',paddingTop:'20px',borderTop:'1px solid var(--border)'}}>
-                <a className="cra-link" href={`https://apps.cra-arc.gc.ca/ebci/hacc/srch/pub/dsplyRprtngPrd?q.srchNm=&q.stts=0007&selectedCharityBn=${c.bn.substring(0,9)}&dsrdPg=1`} target="_blank" rel="noopener">View on CRA Website →</a>
+                <a className="cra-link" href={`https://apps.cra-arc.gc.ca/ebci/hacc/srch/pub/bscSrch?q.srchNm=${encodeURIComponent(c.name)}&q.stts=0007`} target="_blank" rel="noopener">View on CRA Website →</a>
               </div>
             </div>
           </div>
