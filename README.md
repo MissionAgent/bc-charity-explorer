@@ -2,9 +2,9 @@
 
 A discovery app for 12,290 registered charities across British Columbia, built on open CRA data.
 
-**[Live Demo →](https://yourusername.github.io/bc-charity-explorer)** *(update this link after deployment)*
+**[Live Demo →](https://missionagent.github.io/bc-charity-explorer)**
 
-![BC Charity Explorer](https://img.shields.io/badge/Charities-12%2C290-1B6B5A) ![Data Source](https://img.shields.io/badge/Data-CRA%20T3010%20(2023)-D4883E)
+![BC Charity Explorer](https://img.shields.io/badge/Charities-12%2C290-003366) ![Data Source](https://img.shields.io/badge/Data-CRA%20T3010%20(2023)-FCBA19)
 
 ## What It Does
 
@@ -22,8 +22,11 @@ Not every registered charity provides the same level of community impact. This a
 
 - **12 category tiles** — Faith, Animal Welfare, Environment, Health, Arts, and more
 - **City filter** — Top 60 BC cities
-- **Search** — By charity name or city
-- **Financial detail modals** — Revenue, expenses, program spending ratio, fund allocation bars
+- **Search** — By charity name, city, or BN registration number
+- **BN search** — Dedicated search field for CRA Business Number lookups (supports partial matching)
+- **Focus Areas** — Cross-cutting thematic filters for Climate & Environment, Indigenous Communities, and Minorities & Equity
+- **Favorites** — Star/bookmark charities to mark top picks, persisted in browser localStorage
+- **Financial detail modals** — Revenue, expenses, program spending ratio, fund allocation bars with contextual explanations
 - **Flow-through detection** — Flags entities with high revenue but zero receipted donations
 - **CRA deep links** — One click to view official filings on the CRA website
 
@@ -57,7 +60,8 @@ Single self-contained HTML file — no build step, no dependencies to install:
 
 - React 18 (CDN)
 - Babel standalone (in-browser JSX compilation)
-- DM Sans + Fraunces fonts (Google Fonts)
+- BC Sans font (BC Government standard typography)
+- BC Government blue/gold colour palette (#003366 / #FCBA19)
 - All 12,290 charity records embedded as a JSON array (~2.2MB)
 
 ## Local Development
@@ -70,6 +74,18 @@ Just open `index.html` in a browser. That's it.
 2. Upload the `index.html` file
 3. Go to **Settings → Pages → Source → Deploy from branch → main**
 4. Your site will be live at `https://yourusername.github.io/repo-name`
+
+## Focus Areas
+
+The Focus Areas dropdown provides cross-cutting thematic filters that span across the 12 categories:
+
+| Focus Area | What It Matches |
+|------------|----------------|
+| **Climate & Environment** | Charities with climate, conservation, sustainability, wildlife, habitat, marine, forest, and related keywords |
+| **Indigenous Communities** | Charities in the Indigenous Services category, plus those with First Nation, Métis, reconciliation, and specific nation name keywords |
+| **Minorities & Equity** | Charities with diversity, equity, inclusion, immigrant, refugee, LGBTQ+, disability, newcomer, and related keywords |
+
+These filters use keyword matching against charity names and work in combination with all other filters (tier, category, city, search).
 
 ## License
 
