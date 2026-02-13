@@ -237,6 +237,7 @@ function App(){
   const[starred,setStarred]=useState(()=>{try{return JSON.parse(localStorage.getItem('bc-charity-stars'))||[];}catch(e){return[];}});
   const[showStarred,setShowStarred]=useState(false);
   const[focusArea,setFocusArea]=useState(null);
+  const[charityUrls,setCharityUrls]=useState(()=>{try{return JSON.parse(localStorage.getItem('bc-charity-urls'))||{};}catch(e){return{};}});
 
   const charities=useMemo(()=>DATA.map(d=>({
     name:d[0],city:d[1],category:d[2],revenue:d[3],
@@ -285,6 +286,9 @@ function App(){
 
   useEffect(()=>{setPage(0)},[activeTier,activeCat,city,search,bnSearch,sortBy,showStarred,focusArea]);
   useEffect(()=>{localStorage.setItem('bc-charity-stars',JSON.stringify(starred));},[starred]);
+  useEffect(()=>{localStorage.setItem('bc-charity-urls',JSON.stringify(charityUrls));},[charityUrls]);
+
+  const saveCharityUrl=(bn,url)=>{setCharityUrls(prev=>{const next={...prev};if(url.trim())next[bn]=url.trim();else delete next[bn];return next;});};
 
   const totalPages=Math.ceil(filtered.length/PER_PAGE);
   const paged=filtered.slice(page*PER_PAGE,(page+1)*PER_PAGE);
@@ -486,6 +490,13 @@ function App(){
               )}
 
               <div style={{marginTop:'20px',paddingTop:'20px',borderTop:'1px solid var(--border)'}}>
+                <div style={{marginBottom:'14px'}}>
+                  <label style={{fontSize:'0.78rem',color:'var(--text2)',display:'block',marginBottom:'4px'}}>Charity Website</label>
+                  <div style={{display:'flex',gap:'8px',alignItems:'center'}}>
+                    <input type="text" placeholder="Paste charity website URL..." value={charityUrls[c.bn]||''} onChange={e=>saveCharityUrl(c.bn,e.target.value)} style={{flex:1,padding:'8px 12px',borderRadius:'var(--radius-sm)',border:'1px solid var(--border)',fontSize:'0.85rem',background:'var(--bg)'}}/>
+                    {charityUrls[c.bn]&&<a href={charityUrls[c.bn].startsWith('http')?charityUrls[c.bn]:'https://'+charityUrls[c.bn]} target="_blank" rel="noopener" className="cra-link" style={{whiteSpace:'nowrap',padding:'8px 12px'}}>Visit →</a>}
+                  </div>
+                </div>
                 <a className="cra-link" href={`https://apps.cra-arc.gc.ca/ebci/hacc/srch/pub/bscSrch?q.srchNm=${encodeURIComponent(c.name)}&q.stts=0007`} target="_blank" rel="noopener">View on CRA Website →</a>
               </div>
             </div>
