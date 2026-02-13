@@ -7,24 +7,24 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@bcgov/bc-sans/css/BCSans.css" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#FAF7F2;--bg2:#F0EBE3;--text:#2D2A26;--text2:#6B6560;
-  --accent:#1B6B5A;--accent-light:#E8F5F0;--accent2:#D4883E;--accent2-light:#FFF3E6;
-  --card:#FFFFFF;--border:#E8E3DC;
-  --shadow:0 1px 3px rgba(45,42,38,0.06),0 4px 12px rgba(45,42,38,0.04);
-  --shadow-lg:0 4px 6px rgba(45,42,38,0.06),0 12px 32px rgba(45,42,38,0.08);
-  --radius:12px;--radius-sm:8px;
-  --tier1:#1B6B5A;--tier1-bg:#E8F5F0;
-  --tier2:#4A6FA5;--tier2-bg:#EBF0F7;
-  --tier3:#9E8E7E;--tier3-bg:#F5F2EE;
+  --bg:#F2F2F2;--bg2:#E5E5E5;--text:#313132;--text2:#606060;
+  --accent:#003366;--accent-light:#D9E8F5;--accent2:#FCBA19;--accent2-light:#FFF8E1;
+  --card:#FFFFFF;--border:#D1D1D1;
+  --shadow:0 1px 3px rgba(0,0,0,0.08),0 4px 12px rgba(0,0,0,0.04);
+  --shadow-lg:0 4px 6px rgba(0,0,0,0.08),0 12px 32px rgba(0,0,0,0.06);
+  --radius:4px;--radius-sm:4px;
+  --tier1:#003366;--tier1-bg:#D9E8F5;
+  --tier2:#38598A;--tier2-bg:#E0E8F0;
+  --tier3:#6C757D;--tier3-bg:#EDEDED;
 }
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.5;-webkit-font-smoothing:antialiased}
-h1,h2,h3,h4,h5{font-family:'Fraunces',serif;font-weight:500}
+body{font-family:'BCSans','Noto Sans',Verdana,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,h5{font-family:'BCSans','Noto Sans',Verdana,Arial,sans-serif;font-weight:700}
 .container{max-width:1240px;margin:0 auto;padding:0 24px}
-input,select,button{font-family:'DM Sans',sans-serif}
+input,select,button{font-family:'BCSans','Noto Sans',Verdana,Arial,sans-serif}
 input:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px}
 ::selection{background:var(--accent);color:white}
 ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:var(--bg2)}
@@ -36,8 +36,8 @@ input:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px}
 .scale-in{animation:scaleIn 0.25s ease-out forwards}
 
 /* ── HEADER ── */
-.header{background:linear-gradient(135deg,#1B6B5A 0%,#14524A 50%,#1A3A35 100%);padding:44px 0 52px;position:relative;overflow:hidden}
-.header::before{content:'';position:absolute;top:-50%;right:-15%;width:600px;height:600px;background:radial-gradient(circle,rgba(212,136,62,0.12) 0%,transparent 70%)}
+.header{background:linear-gradient(135deg,#003366 0%,#002855 50%,#001F3F 100%);padding:44px 0 52px;position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;top:-50%;right:-15%;width:600px;height:600px;background:radial-gradient(circle,rgba(252,186,25,0.08) 0%,transparent 70%)}
 .header-content{position:relative;z-index:1}
 .header .eyebrow{color:rgba(255,255,255,0.5);font-weight:500;font-size:0.78rem;text-transform:uppercase;letter-spacing:2.5px;margin-bottom:10px;display:block}
 .header h1{color:white;font-size:2.6rem;font-weight:700;margin-bottom:6px;letter-spacing:-0.5px}
@@ -53,13 +53,13 @@ input:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px}
 .search-input:focus{background:rgba(255,255,255,0.16);border-color:rgba(255,255,255,0.25);outline:none}
 .city-select{padding:15px 18px;border:none;border-radius:var(--radius);font-size:0.95rem;background:rgba(255,255,255,0.1);color:white;border:1px solid rgba(255,255,255,0.12);cursor:pointer;min-width:200px;transition:all 0.2s;appearance:none}
 .city-select:focus{background:rgba(255,255,255,0.16);outline:none}
-.city-select option{background:#2D2A26;color:white}
+.city-select option{background:#313132;color:white}
 
 /* ── STATS BAR ── */
 .stats-bar{background:var(--card);border-bottom:1px solid var(--border);padding:16px 0}
 .stats-inner{display:flex;gap:32px;flex-wrap:wrap;align-items:center}
 .stat-item{display:flex;align-items:baseline;gap:6px}
-.stat-num{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;color:var(--accent)}
+.stat-num{font-family:'BCSans','Noto Sans',Verdana,Arial,sans-serif;font-size:1.3rem;font-weight:700;color:var(--accent)}
 .stat-label{font-size:0.82rem;color:var(--text2)}
 
 /* ── TIER FILTER BAR ── */
@@ -71,9 +71,9 @@ input:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px}
 .tier-chip.active-3{border-color:var(--tier3);background:var(--tier3-bg);box-shadow:0 0 0 1px var(--tier3)}
 .tier-chip .tc-icon{font-size:1.6rem}
 .tier-chip .tc-info{flex:1}
-.tier-chip .tc-title{font-family:'Fraunces',serif;font-size:0.95rem;font-weight:600;line-height:1.2}
+.tier-chip .tc-title{font-family:'BCSans','Noto Sans',Verdana,Arial,sans-serif;font-size:0.95rem;font-weight:600;line-height:1.2}
 .tier-chip .tc-desc{font-size:0.75rem;color:var(--text2);line-height:1.3;margin-top:2px}
-.tier-chip .tc-count{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:700;color:var(--text2)}
+.tier-chip .tc-count{font-family:'BCSans','Noto Sans',Verdana,Arial,sans-serif;font-size:1.2rem;font-weight:700;color:var(--text2)}
 .tier-chip.active-1 .tc-count{color:var(--tier1)}
 .tier-chip.active-2 .tc-count{color:var(--tier2)}
 .tier-chip.active-3 .tc-count{color:var(--tier3)}
@@ -87,7 +87,7 @@ input:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px}
 .tile:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);border-color:var(--accent)}
 .tile.active{border-color:var(--accent);background:var(--accent-light);box-shadow:0 0 0 2px var(--accent)}
 .tile-icon{font-size:1.8rem;margin-bottom:10px;display:block}
-.tile-name{font-family:'Fraunces',serif;font-size:0.9rem;font-weight:500;margin-bottom:4px;color:var(--text);line-height:1.3}
+.tile-name{font-family:'BCSans','Noto Sans',Verdana,Arial,sans-serif;font-size:0.9rem;font-weight:500;margin-bottom:4px;color:var(--text);line-height:1.3}
 .tile-count{font-size:0.78rem;color:var(--text2)}
 .tile-bar{position:absolute;bottom:0;left:0;height:3px;background:var(--accent);transition:width 0.4s ease}
 
@@ -107,15 +107,15 @@ input:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px}
 /* ── CHARITY CARD ── */
 .charity-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;cursor:pointer;transition:all 0.2s;position:relative}
 .charity-card:hover{box-shadow:var(--shadow-lg);border-color:var(--accent);transform:translateY(-1px)}
-.charity-card h3{font-size:1rem;font-weight:600;margin-bottom:3px;line-height:1.3;padding-right:60px}
+.charity-card h3{font-size:1rem;font-weight:600;margin-bottom:3px;line-height:1.3;padding-right:92px}
 .charity-card .city-label{font-size:0.8rem;color:var(--text2);margin-bottom:12px;display:flex;align-items:center;gap:4px}
 .charity-card .metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .metric{background:var(--bg);border-radius:var(--radius-sm);padding:9px 11px}
 .metric-label{font-size:0.7rem;color:var(--text2);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:2px}
-.metric-value{font-family:'Fraunces',serif;font-size:1rem;font-weight:600;color:var(--text)}
+.metric-value{font-family:'BCSans','Noto Sans',Verdana,Arial,sans-serif;font-size:1rem;font-weight:600;color:var(--text)}
 .metric-value.good{color:var(--accent)}
 .metric-value.warn{color:var(--accent2)}
-.charity-card .tag{display:inline-block;font-size:0.7rem;padding:2px 9px;border-radius:100px;font-weight:500;margin-bottom:10px;margin-right:4px}
+.tag{display:inline-block;font-size:0.7rem;padding:2px 9px;border-radius:100px;font-weight:500;margin-bottom:10px;margin-right:4px}
 .tag-cat{background:var(--bg2);color:var(--text2)}
 .tag-t1{background:var(--tier1-bg);color:var(--tier1)}
 .tag-t2{background:var(--tier2-bg);color:var(--tier2)}
@@ -124,6 +124,9 @@ input:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px}
 .tier-badge.t1{background:var(--tier1-bg)}
 .tier-badge.t2{background:var(--tier2-bg)}
 .tier-badge.t3{background:var(--tier3-bg)}
+.star-btn{position:absolute;top:18px;right:56px;width:28px;height:28px;border:none;background:none;cursor:pointer;font-size:1.1rem;opacity:0.3;transition:all 0.2s;z-index:1;padding:0;display:flex;align-items:center;justify-content:center}
+.star-btn:hover{opacity:0.7;transform:scale(1.15)}
+.star-btn.starred{opacity:1;transform:scale(1.05)}
 
 /* ── MODAL ── */
 .modal-overlay{position:fixed;inset:0;background:rgba(45,42,38,0.5);z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(4px)}
@@ -133,7 +136,7 @@ input:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px}
 .modal .fin-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:24px}
 .modal .fin-item{background:var(--bg);border-radius:var(--radius-sm);padding:13px;text-align:center}
 .modal .fin-item .label{font-size:0.7rem;color:var(--text2);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px}
-.modal .fin-item .val{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600}
+.modal .fin-item .val{font-family:'BCSans','Noto Sans',Verdana,Arial,sans-serif;font-size:1.1rem;font-weight:600}
 .modal .close-btn{position:sticky;top:0;float:right;width:36px;height:36px;border-radius:50%;border:1px solid var(--border);background:var(--card);cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:all 0.2s;z-index:2}
 .modal .close-btn:hover{background:var(--bg2)}
 .modal .bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
@@ -203,6 +206,15 @@ const TIER_INFO={
   3:{name:'Low Activity',icon:'📋',desc:'Dormant charities or private foundations — zero revenue or family-controlled',tagClass:'tag-t3',badgeClass:'t3',color:'var(--tier3)'},
 };
 
+const FOCUS_AREAS=[
+  {id:'climate',label:'Climate & Environment',
+   keywords:['climate','environmental','conservation','sustainability','sustainable','watershed','ecology','ecological','clean energy','carbon','wildlife','habitat','ocean','marine','forest','wilderness','wetland','restoration','renewable','emissions']},
+  {id:'indigenous',label:'Indigenous Communities',
+   keywords:['indigenous','first nation','first nations','métis','metis','inuit','aboriginal','native','tribal','reconciliation','treaty','tsleil','musqueam','squamish','gitxsan','nisga','haida','kwakwaka','nuu-chah-nulth','secwepemc','heiltsuk','tsilhqot']},
+  {id:'minorities',label:'Minorities & Equity',
+   keywords:['diversity','equity','inclusion','immigrant','refugee','multicultural','racialized','bipoc','lgbtq','queer','trans','disability','disabled','accessibility','anti-racism','human rights','civil rights','newcomer','settlement','women centre','gender']},
+];
+
 const fmt=(n)=>{
   if(n>=1e9)return '$'+(n/1e9).toFixed(1)+'B';
   if(n>=1e6)return '$'+(n/1e6).toFixed(1)+'M';
@@ -221,6 +233,10 @@ function App(){
   const[selectedCharity,setSelectedCharity]=useState(null);
   const[sortBy,setSortBy]=useState('revenue');
   const[page,setPage]=useState(0);
+  const[bnSearch,setBnSearch]=useState('');
+  const[starred,setStarred]=useState(()=>{try{return JSON.parse(localStorage.getItem('bc-charity-stars'))||[];}catch(e){return[];}});
+  const[showStarred,setShowStarred]=useState(false);
+  const[focusArea,setFocusArea]=useState(null);
 
   const charities=useMemo(()=>DATA.map(d=>({
     name:d[0],city:d[1],category:d[2],revenue:d[3],
@@ -243,26 +259,32 @@ function App(){
     charities.forEach(c=>{
       if(activeCat && c.category!==activeCat)return;
       if(city && c.city!==city)return;
-      if(search){const q=search.toLowerCase();if(!c.name.toLowerCase().includes(q)&&!c.city.toLowerCase().includes(q))return;}
+      if(search){const q=search.toLowerCase();if(!c.name.toLowerCase().includes(q)&&!c.city.toLowerCase().includes(q)&&!c.bn.toLowerCase().includes(q))return;}
+      if(bnSearch){const bq=bnSearch.replace(/\s/g,'').toUpperCase();if(!c.bn.toUpperCase().includes(bq))return;}
+      if(focusArea){const fa=FOCUS_AREAS.find(f=>f.id===focusArea);if(fa){const nm=c.name.toLowerCase();if(!(focusArea==='indigenous'&&c.category==='Indigenous Services')&&!fa.keywords.some(kw=>nm.includes(kw)))return;}}
       counts[c.tier]++;
     });
     return counts;
-  },[charities,activeCat,city,search]);
+  },[charities,activeCat,city,search,bnSearch,focusArea]);
 
   const filtered=useMemo(()=>{
     let r=charities;
     if(activeTier)r=r.filter(c=>c.tier===activeTier);
     if(activeCat)r=r.filter(c=>c.category===activeCat);
     if(city)r=r.filter(c=>c.city===city);
-    if(search){const q=search.toLowerCase();r=r.filter(c=>c.name.toLowerCase().includes(q)||c.city.toLowerCase().includes(q));}
+    if(search){const q=search.toLowerCase();r=r.filter(c=>c.name.toLowerCase().includes(q)||c.city.toLowerCase().includes(q)||c.bn.toLowerCase().includes(q));}
+    if(bnSearch){const bq=bnSearch.replace(/\s/g,'').toUpperCase();r=r.filter(c=>c.bn.toUpperCase().includes(bq));}
+    if(showStarred)r=r.filter(c=>starred.includes(c.bn));
+    if(focusArea){const fa=FOCUS_AREAS.find(f=>f.id===focusArea);if(fa){r=r.filter(c=>{const nm=c.name.toLowerCase();if(focusArea==='indigenous'&&c.category==='Indigenous Services')return true;return fa.keywords.some(kw=>nm.includes(kw));});}}
     if(sortBy==='revenue')r=[...r].sort((a,b)=>b.revenue-a.revenue);
     else if(sortBy==='ratio')r=[...r].sort((a,b)=>b.programRatio-a.programRatio);
     else if(sortBy==='name')r=[...r].sort((a,b)=>a.name.localeCompare(b.name));
     else if(sortBy==='assets')r=[...r].sort((a,b)=>b.assets-a.assets);
     return r;
-  },[charities,activeTier,activeCat,city,search,sortBy]);
+  },[charities,activeTier,activeCat,city,search,bnSearch,sortBy,showStarred,starred,focusArea]);
 
-  useEffect(()=>{setPage(0)},[activeTier,activeCat,city,search,sortBy]);
+  useEffect(()=>{setPage(0)},[activeTier,activeCat,city,search,bnSearch,sortBy,showStarred,focusArea]);
+  useEffect(()=>{localStorage.setItem('bc-charity-stars',JSON.stringify(starred));},[starred]);
 
   const totalPages=Math.ceil(filtered.length/PER_PAGE);
   const paged=filtered.slice(page*PER_PAGE,(page+1)*PER_PAGE);
@@ -270,9 +292,10 @@ function App(){
   const activeCount=useMemo(()=>charities.filter(c=>c.tier!==3).length,[charities]);
   const totalRev=useMemo(()=>charities.reduce((s,c)=>s+c.revenue,0),[charities]);
 
-  const showResults=activeCat||search||city||activeTier;
+  const toggleStar=(bn,e)=>{e.stopPropagation();setStarred(prev=>prev.includes(bn)?prev.filter(b=>b!==bn):[...prev,bn]);};
+  const showResults=activeCat||search||bnSearch||city||activeTier||showStarred||focusArea;
 
-  const clearFilters=()=>{setSearch('');setCity('');setActiveCat(null);setActiveTier(null)};
+  const clearFilters=()=>{setSearch('');setBnSearch('');setCity('');setActiveCat(null);setActiveTier(null);setShowStarred(false);setFocusArea(null)};
 
   const desigLabel=(d)=>d==='0001'?'Charitable Organization':d==='0002'?'Public Foundation':d==='0003'?'Private Foundation':'Unknown';
 
@@ -286,11 +309,19 @@ function App(){
           <div className="search-bar">
             <div className="search-wrap">
               <span className="search-icon">🔍</span>
-              <input className="search-input" type="text" placeholder="Search by charity name or city..." value={search} onChange={e=>setSearch(e.target.value)}/>
+              <input className="search-input" type="text" placeholder="Search by charity name, city, or BN..." value={search} onChange={e=>setSearch(e.target.value)}/>
+            </div>
+            <div className="search-wrap" style={{minWidth:'180px',maxWidth:'240px',flex:'0 1 auto'}}>
+              <span className="search-icon">#</span>
+              <input className="search-input" type="text" placeholder="Search by BN..." value={bnSearch} onChange={e=>setBnSearch(e.target.value)}/>
             </div>
             <select className="city-select" value={city} onChange={e=>setCity(e.target.value)}>
               <option value="">All Cities</option>
               {CITIES.map(c=><option key={c} value={c}>{c}</option>)}
+            </select>
+            <select className="city-select" value={focusArea||''} onChange={e=>setFocusArea(e.target.value||null)}>
+              <option value="">All Focus Areas</option>
+              {FOCUS_AREAS.map(f=><option key={f.id} value={f.id}>{f.label}</option>)}
             </select>
           </div>
         </div>
@@ -353,7 +384,7 @@ function App(){
           <div className="container">
             <button className="back-btn" onClick={clearFilters}>← Clear all filters</button>
             <div className="results-header">
-              <h2>{activeCat||'All Categories'}{activeTier?' · '+TIER_INFO[activeTier].name:''}{city?' in '+city:''}</h2>
+              <h2>{activeCat||'All Categories'}{activeTier?' · '+TIER_INFO[activeTier].name:''}{focusArea?' · '+(FOCUS_AREAS.find(f=>f.id===focusArea)?.label||''):''}{city?' in '+city:''}</h2>
               <span className="results-count">{filtered.length.toLocaleString()} charities</span>
             </div>
             <div className="toggle-bar">
@@ -361,6 +392,7 @@ function App(){
               {[['revenue','Revenue'],['ratio','Program %'],['assets','Assets'],['name','A–Z']].map(([k,l])=>(
                 <button key={k} className={`toggle-btn ${sortBy===k?'active':''}`} onClick={()=>setSortBy(k)}>{l}</button>
               ))}
+              {starred.length>0&&(<button className={`toggle-btn ${showStarred?'active':''}`} style={{marginLeft:'auto'}} onClick={()=>setShowStarred(!showStarred)}>⭐ Favorites ({starred.length})</button>)}
             </div>
 
             {paged.length===0?(
@@ -371,6 +403,7 @@ function App(){
                   const ti=TIER_INFO[c.tier];
                   return(
                     <div key={c.bn+i} className="charity-card fade-in" style={{animationDelay:`${i*25}ms`}} onClick={()=>setSelectedCharity(c)}>
+                      <button className={`star-btn ${starred.includes(c.bn)?'starred':''}`} onClick={(e)=>toggleStar(c.bn,e)} title={starred.includes(c.bn)?'Remove from favorites':'Add to favorites'}>{starred.includes(c.bn)?'⭐':'☆'}</button>
                       <div className={`tier-badge ${ti.badgeClass}`}>{ti.icon}</div>
                       <span className={`tag ${ti.tagClass}`}>{ti.name}</span>
                       <span className="tag tag-cat">{c.category}</span>
@@ -407,6 +440,7 @@ function App(){
           <div className="modal-overlay" onClick={()=>setSelectedCharity(null)}>
             <div className="modal scale-in" onClick={e=>e.stopPropagation()}>
               <button className="close-btn" onClick={()=>setSelectedCharity(null)}>✕</button>
+              <button className={`star-btn ${starred.includes(c.bn)?'starred':''}`} style={{position:'static',display:'inline-flex',marginBottom:'4px',fontSize:'0.75rem',whiteSpace:'nowrap'}} onClick={(e)=>toggleStar(c.bn,e)} title={starred.includes(c.bn)?'Remove from favorites':'Add to favorites'}>{starred.includes(c.bn)?'⭐ Favorited':'☆ Favorite'}</button>
               <div style={{marginBottom:'12px'}}>
                 <span className={`tag ${ti.tagClass}`}>{ti.icon} {ti.name}</span>
                 <span className="tag tag-cat">{c.category}</span>
@@ -445,6 +479,9 @@ function App(){
                     <span className="bar-label">Admin & Other</span>
                     <div className="bar-track"><div className="bar-fill" style={{width:`${Math.min(100-c.programRatio,100)}%`,background:'var(--accent2)'}}>{(100-c.programRatio)>=12?(100-c.programRatio).toFixed(1)+'%':''}</div></div>
                   </div>
+                  <p style={{fontSize:'0.78rem',color:'var(--text2)',marginTop:'12px',lineHeight:'1.5',fontStyle:'italic'}}>
+                    <strong>Program %</strong> shows how much of total spending goes directly to the charity's mission (services, grants, programs). <strong>Admin & Other</strong> includes fundraising, management, and overhead. A higher Program % generally means more funds reach beneficiaries, but some admin spending is necessary for effective operations.
+                  </p>
                 </div>
               )}
 
